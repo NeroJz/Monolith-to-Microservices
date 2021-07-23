@@ -1,0 +1,22 @@
+language: node_js
+
+services:
+  - docker
+
+before_script:
+  - echo "no tests"
+
+script:
+  - docker --version
+  - docker-compose -f docker-compose-build.yaml
+
+after_success:
+  - docker tag udagram-api-feed nerojz/udagram-api-feed
+  - docker tag udagram-api-user nerojz/udagram-api-user
+  - docker tag reverseproxy nerojz/reverseproxy
+  - docker tag udagram-frontend:local nerojz/udagram-frontend
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push nerojz/udagram-api-feed
+  - docker push nerojz/udagram-api-user
+  - docker push nerojz/reverseproxy
+  - docker push nerojz/udagram-frontend
