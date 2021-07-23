@@ -19,7 +19,7 @@ after_success:
   - docker tag reverseproxy nerojz/reverseproxy
   - docker tag udagram-frontend nerojz/udagram-frontend
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push nerojz/udagram-api-feed:v1
-  - docker push nerojz/udagram-api-user:v1
-  - docker push nerojz/reverseproxy:v1
-  - docker push nerojz/udagram-frontend:v1
+  - docker push nerojz/udagram-api-feed
+  - docker push nerojz/udagram-api-user
+  - docker push nerojz/reverseproxy
+  - docker push nerojz/udagram-frontend
