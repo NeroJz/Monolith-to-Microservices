@@ -37,4 +37,6 @@ node_modules
 venv/
 .vscode
 
+*.yaml
+
 set_env.sh
