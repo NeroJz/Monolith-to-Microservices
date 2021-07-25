@@ -12,4 +12,4 @@ RUN npm ci
 # Copy all dependencies to app directory
 COPY . .
 EXPOSE 8080
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "prod"]
